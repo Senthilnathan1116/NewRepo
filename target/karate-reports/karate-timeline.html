@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"com\/test\/karate\/getReqWithPath[1:6]","start":1708065693759,"end":1708065695019,"title":"com\/test\/karate\/getReqWithPath[1:6] 12:11:33.759-12:11:35.019 Validate Get call with path parameter"},{"id":2,"group":1,"content":"com\/test\/karate\/getReqWithPath[2:13]","start":1708065695047,"end":1708065695161,"title":"com\/test\/karate\/getReqWithPath[2:13] 12:11:35.047-12:11:35.161 Validate Get call response - match"},{"id":3,"group":1,"content":"com\/test\/karate\/getReqWithPath[3:45]","start":1708065695180,"end":1708065695210,"title":"com\/test\/karate\/getReqWithPath[3:45] 12:11:35.180-12:11:35.210 Validate Get call response - match\/ contains\/ deep"},{"id":4,"group":1,"content":"com\/test\/karate\/getReqWithPath[4:55]","start":1708065695223,"end":1708065695288,"title":"com\/test\/karate\/getReqWithPath[4:55] 12:11:35.223-12:11:35.288 Validate Get call response - match arrray validation"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
